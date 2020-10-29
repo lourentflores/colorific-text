@@ -31,8 +31,8 @@ fetch('https://api.color.pizza/v1/')
   .then((data) => data.json())
   .then((data) =>
     data.colors.reduce((acc, cur) => {
-      acc[cur.name] = cur.hex;
+      acc[cur.name.toLowerCase()] = cur.hex;
       return acc;
     }, {})
   )
-  .then((data) => console.log(data));
+  .then((data) => colorizer(data));
