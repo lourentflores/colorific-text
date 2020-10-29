@@ -1,12 +1,20 @@
-.animate {
-  animation: pulse 5s infinite;
+.animate-colorizer {
+  animation: pulse 3s infinite;
+  display: inline-block;
 }
 
 @keyframes pulse {
   0% {
-    font-color: white;
+    opacity: 100%;
+  }
+  50% {
+    opacity: 50%;
   }
   100% {
-    font-color: red;
+    opacity: 100%;
   }
+}
+
+.animate-colorize:hover {
+  border: 1px solid red;
 }
