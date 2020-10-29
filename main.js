@@ -20,18 +20,19 @@ function colorizer(colorsObj) {
       if (colorsObj[parsedWord])
         textArr[
           index
-        ] = `<span class="animate" style="color: ${colorsObj[parsedWord]}">${word}</span>`;
+        ] = `<span class="animate-colorizer" style="color: ${colorsObj[parsedWord]}">${word}</span>`;
     });
     node.innerHTML = textArr.join(' ');
   });
 }
 
-// fetch('https://api.color.pizza/v1/')
-//   .then((data) => data.json())
-//   .then((data) =>
-//     data.colors.reduce((acc, cur) => {
-//       acc[cur.name] = cur.hex;
-//       return acc;
-//     }, {})
-//   )
-//   .then((data) => console.log(data));
+const regex = /[^a-z0-9]/gi;
+fetch('https://api.color.pizza/v1/')
+  .then((data) => data.json())
+  .then((data) =>
+    data.colors.reduce((acc, cur) => {
+      acc[cur.name.toLowerCase()] = cur.hex;
+      return acc;
+    }, {})
+  )
+  .then((data) => colorizer(data));

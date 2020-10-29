@@ -1,12 +1,15 @@
-.animate {
-  animation: pulse 5s infinite;
+.animate-colorizer {
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
   0% {
-    font-color: white;
+    opacity: 100%
+  }
+  50% {
+    opacity: 20%;
   }
   100% {
-    font-color: red;
+    opacity: 100%
   }
 }
