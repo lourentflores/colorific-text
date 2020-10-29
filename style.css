@@ -1,0 +1,12 @@
+.animate {
+  animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    font-color: white;
+  }
+  100% {
+    font-color: red;
+  }
+}
