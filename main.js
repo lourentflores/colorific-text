@@ -1,16 +1,7 @@
-const colorsObj = {
-  red: '#FF0000',
-  orange: '#FF7F00',
-  yellow: '#FFFF00',
-  green: '#00FF00',
-  blue: '#0000FF',
-  indigo: '#2E2B5F',
-  violet: '#8B00FF',
-};
-
-// <span style="color: blue">blue</span>;
 function colorizer(colorsObj) {
-  const p = document.querySelectorAll('p');
+  const p = document.querySelectorAll(
+    'h1, h2, h3, h4, h5, h6, p, li, span, td'
+  );
   p.forEach((node) => {
     const text = node.innerHTML;
     const textArr = text.split(' ');
@@ -20,8 +11,13 @@ function colorizer(colorsObj) {
       if (colorsObj[parsedWord])
         textArr[
           index
-        ] = `<span class="animate-colorizer" style="color: ${colorsObj[parsedWord]}">${word}</span>`;
+        ] = `<span class="animate-colorizer" style="animation-delay: ${
+          100 * index
+        }ms; font-weight: bold; color: ${
+          colorsObj[parsedWord]
+        }">${word}</span>`;
     });
+
     node.innerHTML = textArr.join(' ');
   });
 }
